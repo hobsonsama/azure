@@ -43,10 +43,8 @@ taskDao
   })
  
 app.get('/', (req, res, next) => taskList.showTasks(req, res).catch(next))
-app.post('/addtask', (req, res, next) => taskList.addTask(req, res).catch(next))
-app.post('/completetask', (req, res, next) =>
-  taskList.completeTask(req, res).catch(next)
-)
+app.post('/addFeedback', (req, res, next) => taskList.addTask(req, res).catch(next))
+
 app.set('view engine', 'jade')
 
 // catch 404 and forward to error handler
