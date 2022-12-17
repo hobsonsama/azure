@@ -10,7 +10,7 @@ const TaskDao = require("../models/TaskDao");
    }
    async showTasks(req, res) {
      const querySpec = {
-       query: "SELECT * FROM root r WHERE r.completed=@completed",
+       query: "SELECT * FROM Feedback",
        parameters: [
          {
            name: "@completed",
@@ -21,8 +21,8 @@ const TaskDao = require("../models/TaskDao");
 
      const items = await this.taskDao.find(querySpec);
      res.render("index", {
-       title: "My ToDo List ",
-       tasks: items
+       title: "Feedback ",
+       feedbackL: items
      });
    }
 
@@ -31,20 +31,6 @@ const TaskDao = require("../models/TaskDao");
 
      await this.taskDao.addItem(item);
      res.redirect("/");
-   }
-
-   async completeTask(req, res) {
-     const completedTasks = Object.keys(req.body);
-     const tasks = [];
-
-     completedTasks.forEach(task => {
-       tasks.push(this.taskDao.updateItem(task));
-     });
-
-     await Promise.all(tasks);
-
-     res.redirect("/");
-   }
  }
 
  module.exports = TaskList;
