@@ -25,6 +25,8 @@ const TaskDao = require("../models/TaskDao");
 
      await this.taskDao.addItem(item);
      res.redirect("/");
+   }
+  
  }
 
  module.exports = TaskList;
