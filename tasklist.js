@@ -16,7 +16,7 @@ const TaskDao = require("../models/TaskDao");
      const items = await this.taskDao.find(querySpec);
      res.render("index", {
        title: "Feedback ",
-       feedbackL: items
+       feedback: item
      });
    }
 
