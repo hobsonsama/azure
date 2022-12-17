@@ -11,12 +11,6 @@ const TaskDao = require("../models/TaskDao");
    async showTasks(req, res) {
      const querySpec = {
        query: "SELECT * FROM Feedback",
-       parameters: [
-         {
-           name: "@completed",
-           value: false
-         }
-       ]
      };
 
      const items = await this.taskDao.find(querySpec);
